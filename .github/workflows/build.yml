@@ -1,3 +1,4 @@
+
 name: Build CPP to EXE
 
 on:
@@ -14,7 +15,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Compile CPP
-        run: g++ main.cpp -o menu_makanan.exe
+        run: g++ -static -static-libgcc -static-libstdc++ main.cpp -o menu_makanan.exe
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
