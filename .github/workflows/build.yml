@@ -1,0 +1,23 @@
+name: Build CPP to EXE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile CPP
+        run: g++ main.cpp -o menu_makanan.exe
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: menu-makanan-exe
+          path: menu_makanan.exe
